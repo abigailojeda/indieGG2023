@@ -21,6 +21,8 @@ public class GemsCounter : MonoBehaviour
         {
            if (gameManager)
             {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().playAudio("magic");
+
                 gameManager.IncrementScore(scoreValue);
                 //UpdateScoreText();
                 gameObject.SetActive(false);

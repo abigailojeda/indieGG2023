@@ -9,18 +9,14 @@ public class SoundManager : MonoBehaviour
     {
         switch (sound)
         {
-            case "button":
+            case "magic":
                 gameObject.GetComponent<AudioSource>().PlayOneShot(audios[0]);
                 break;
-            case "pick":
+         
+            case "jump":
                 gameObject.GetComponent<AudioSource>().PlayOneShot(audios[1]);
                 break;
-            case "goodDelivered":
-                gameObject.GetComponent<AudioSource>().PlayOneShot(audios[2]);
-                break;
-            case "backDelivered":
-                gameObject.GetComponent<AudioSource>().PlayOneShot(audios[3]);
-                break;
+          
         }
     }
 }

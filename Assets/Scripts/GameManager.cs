@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             if (plataforma.activeInHierarchy) 
             {
-                int cantidadGemas = Random.Range(1, 6); 
+                int cantidadGemas = Random.Range(1, 4); 
 
                 for (int i = 0; i < cantidadGemas; i++)
                 {
@@ -63,7 +63,10 @@ public class GameManager : MonoBehaviour
         progressBar.value = percentage;
 
         PlayerPrefs.SetFloat("GemsCompletionPercentage", percentage);
+        PlayerPrefs.SetInt("TotalScore", totalScore);
+        PlayerPrefs.SetInt("TotalGems", totalGems);
         PlayerPrefs.Save();
+       
     }
 
     public void ResetScore()

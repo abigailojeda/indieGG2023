@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = new Vector3(transform.position.x + 5f * Time.deltaTime, transform.position.y, 0);
                
                 GetComponent<Animator>().SetBool("moving", true);
+
+
             }
             if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
             {
@@ -39,11 +41,14 @@ public class PlayerMovement : MonoBehaviour
               
                 GetComponent<Animator>().SetBool("moving", true);
 
+
             }
             if (onFloor && (Input.GetKeyDown("up") || Input.GetKeyDown(KeyCode.W)))
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jumpForce, 0));
                 onFloor = false;
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().playAudio("jump");
+
             }
 
             if ((!Input.GetKey("left") && !Input.GetKey(KeyCode.A)) &&
