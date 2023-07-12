@@ -12,6 +12,9 @@ public class SoundManager : MonoBehaviour
             case "magic":
                 gameObject.GetComponent<AudioSource>().PlayOneShot(audios[0]);
                 break;
+         case "button":
+                gameObject.GetComponent<AudioSource>().PlayOneShot(audios[0]);
+                break;
          
             case "jump":
                 gameObject.GetComponent<AudioSource>().PlayOneShot(audios[1]);
