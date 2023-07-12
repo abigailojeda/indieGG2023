@@ -18,16 +18,16 @@ public class MainMenu : MonoBehaviour
     public void ShowOptions()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().playAudio("button");
-       // MainMenuObject.SetActive(false);
-       // OptionsMenu.SetActive(true);
+        MainMenuObject.SetActive(false);
+        OptionsMenu.SetActive(true);
 
     }
 
     public void HideOptions()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().playAudio("button");
-      //  MainMenuObject.SetActive(true);
-      //  OptionsMenu.SetActive(false);
+        MainMenuObject.SetActive(true);
+        OptionsMenu.SetActive(false);
 
     }
 
