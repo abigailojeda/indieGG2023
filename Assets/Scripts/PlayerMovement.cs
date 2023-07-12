@@ -29,20 +29,42 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.localScale = new Vector3(right, transform.localScale.y, transform.localScale.z);
                 transform.position = new Vector3(transform.position.x + 5f * Time.deltaTime, transform.position.y, 0);
-                FaceToRight();
+               
+                GetComponent<Animator>().SetBool("moving", true);
             }
             if (Input.GetKey("left") || Input.GetKey(KeyCode.A))
             {
                 transform.localScale = new Vector3(left, transform.localScale.y, transform.localScale.z);
                 transform.position = new Vector3(transform.position.x - 5f * Time.deltaTime, transform.position.y, 0);
-                FaceToLeft();
+              
+                GetComponent<Animator>().SetBool("moving", true);
+
             }
             if (onFloor && (Input.GetKeyDown("up") || Input.GetKeyDown(KeyCode.W)))
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector3(0, jumpForce, 0));
                 onFloor = false;
             }
+
+            if ((!Input.GetKey("left") && !Input.GetKey(KeyCode.A)) &&
+                (!Input.GetKey("right") && !Input.GetKey(KeyCode.D)))
+            {
+                GetComponent<Animator>().SetBool("moving", false);
+            }
+
+            if(GetComponent<Rigidbody2D>().velocity.y != 0)
+            {
+                GetComponent<Animator>().SetBool("jumping", true);
+            }
+            else
+            {
+                GetComponent<Animator>().SetBool("jumping", false);
+
+            }
+
         }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

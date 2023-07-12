@@ -5,7 +5,7 @@ using UnityEngine;
 public class GemsCounter : MonoBehaviour
 {
     public int scoreValue = 1; 
-    public GameManager gameManager;
+    private GameManager gameManager;
 
   
 
@@ -13,21 +13,19 @@ public class GemsCounter : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
     }
-    // private Text scoreText; // Referencia al componente Text del Canvas
-
-    //private void Start()
-    //{
-    //    GameObject canvas = GameObject.FindGameObjectWithTag("UI"); // Encontrar el objeto Canvas por su tag único
-    //    //scoreText = canvas.GetComponentInChildren<Text>(); // Obtener el componente Text del Canvas
-    //}
+  
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            this.gameManager.IncrementScore(scoreValue);
-            UpdateScoreText(); 
-            gameObject.SetActive(false);
+           if (gameManager)
+            {
+                gameManager.IncrementScore(scoreValue);
+                //UpdateScoreText();
+                gameObject.SetActive(false);
+            }
+            
           
         }
     }

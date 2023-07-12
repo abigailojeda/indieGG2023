@@ -18,7 +18,7 @@ public class GemSelection : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.ElegirGema(gameObject.tag);
+            //gameManager.ElegirGema(gameObject.tag);
             gemaA.SetActive(false);
             gemaB.SetActive(false);
         }

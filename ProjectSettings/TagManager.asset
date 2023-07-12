@@ -49,3 +49,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Foreground
+    uniqueID: 1744125315
+    locked: 0
+  - name: Progress
+    uniqueID: 1685152545
+    locked: 0
