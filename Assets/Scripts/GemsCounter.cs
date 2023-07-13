@@ -22,14 +22,21 @@ public class GemsCounter : MonoBehaviour
            if (gameManager)
             {
                 GameObject.Find("SoundManager").GetComponent<SoundManager>().playAudio("magic");
-
+               GetComponent<Animator>().SetBool("disappear", true);
+                StartCoroutine(DisableObjectWithDelay(0.4f)); 
                 gameManager.IncrementScore(scoreValue);
                 //UpdateScoreText();
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
             
           
         }
+    }
+
+    IEnumerator DisableObjectWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 
     private void UpdateScoreText()

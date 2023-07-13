@@ -9,10 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private bool onFloor = true;
     public float jumpForce = 300f;
     SpriteRenderer spriteRenderer;
-    bool isFacingRight = true;
-    public bool IsFacingRight() => isFacingRight;
-
-    bool _gameIsOn = true;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,11 +16,10 @@ public class PlayerMovement : MonoBehaviour
         left = -transform.localScale.x;
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        if (_gameIsOn)
-        {
+       
             if (Input.GetKey("right") || Input.GetKey(KeyCode.D))
             {
                 transform.localScale = new Vector3(right, transform.localScale.y, transform.localScale.z);
@@ -67,14 +62,14 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-        }
+        
 
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor")  && _gameIsOn)
+        if (collision.gameObject.CompareTag("Floor") )
         {
             onFloor = true;
         }
@@ -97,21 +92,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FaceToRight()
-    {
-        if(isFacingRight) return;
-        spriteRenderer.flipX = false;
-        isFacingRight = true;
-    }
-    private void FaceToLeft()
-    {
-        if(!isFacingRight) return;
-        spriteRenderer.flipX = true;
-        isFacingRight = false;
-    }
-    
-    public void StartRecordingPlayerMovement() => _gameIsOn = true;
-    public void StopRecordingPlayerMovement() => _gameIsOn = false;
 
-   
+    
 }

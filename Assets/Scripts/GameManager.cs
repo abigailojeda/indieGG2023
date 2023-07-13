@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         totalScore += scoreValue; 
        
-        Debug.Log(totalScore);
+      //  Debug.Log(totalScore);
 
         float percentage = ((float)totalScore / (float)totalGems) * 100;
         progressBar.value = percentage;
