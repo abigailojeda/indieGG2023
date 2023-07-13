@@ -15,6 +15,8 @@ public class VictoryScore : MonoBehaviour
 
         Debug.Log("Puntuación total: " + totalScore);
         Debug.Log("Total de gemas: " + totalGems);
+        Debug.Log("Tipo de dato de TotalScore: " + totalScore.GetType());
+        Debug.Log("Tipo de dato de TotalGems: " + totalGems.GetType());
 
         if (totalScore == totalGems)
         {
@@ -26,6 +28,7 @@ public class VictoryScore : MonoBehaviour
             imageWhenEqual.gameObject.SetActive(false);
             imageWhenLess.gameObject.SetActive(true);
             scoreText.text = "You forgot " + (totalGems - totalScore) + " little birds";
+            scoreText.gameObject.SetActive(true);
         }
     }
 }
